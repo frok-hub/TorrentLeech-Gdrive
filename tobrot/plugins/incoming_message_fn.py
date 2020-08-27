@@ -63,7 +63,7 @@ async def incoming_message_f(client, message):
     LOGGER.info(dl_url)
     LOGGER.info(cf_name)
     if dl_url is not None:
-        await i_m_sefg.edit_text("extracting links")
+        await i_m_sefg.edit_text("@gryfendor_leecher extracting links")
         # start the aria2c daemon
         aria_i_p = await aria_start()
         LOGGER.info(aria_i_p)
@@ -77,7 +77,7 @@ async def incoming_message_f(client, message):
         # create download directory, if not exist
         if not os.path.isdir(new_download_location):
             os.makedirs(new_download_location)
-        await i_m_sefg.edit_text("trying to download")
+        await i_m_sefg.edit_text("@gryfendor_leecher trying to download")
         # try to download the "link"
         sagtus, err_message = await call_apropriate_function(
             aria_i_p,
@@ -96,7 +96,7 @@ async def incoming_message_f(client, message):
             await i_m_sefg.edit_text(err_message)
     else:
         await i_m_sefg.edit_text(
-            "**FCUK**! wat have you entered. \nPlease read /help \n"
+            "**Please Read The Pinned Message**! <a href="https://t.me/gryfendor_leecher/6">PINNED MESSAGE</a> "
             f"<b>API Error</b>: {cf_name}"
         )
 #
@@ -121,7 +121,7 @@ async def incoming_gdrive_message_f(client, message):
     LOGGER.info(dl_url)
     LOGGER.info(cf_name)
     if dl_url is not None:
-        await i_m_sefg.edit_text("extracting links")
+        await i_m_sefg.edit_text("@gryfendor_leecher extracting links")
         # start the aria2c daemon
         aria_i_p = await aria_start()
         LOGGER.info(aria_i_p)
@@ -135,7 +135,7 @@ async def incoming_gdrive_message_f(client, message):
         # create download directory, if not exist
         if not os.path.isdir(new_download_location):
             os.makedirs(new_download_location)
-        await i_m_sefg.edit_text("trying to download")
+        await i_m_sefg.edit_text("@gryfendor_leecher trying to download")
         # try to download the "link"
         await call_apropriate_function_g(
             aria_i_p,
@@ -151,7 +151,7 @@ async def incoming_gdrive_message_f(client, message):
         )
     else:
         await i_m_sefg.edit_text(
-            "**FCUK**! wat have you entered. \nPlease read /help \n"
+              "**Please Read The Pinned Message**! <a href="https://t.me/gryfendor_leecher/6">PINNED MESSAGE</a> "
             f"<b>API Error</b>: {cf_name}"
         )
 
@@ -206,7 +206,7 @@ async def incoming_youtube_dl_f(client, message):
             )
     else:
         await i_m_sefg.edit_text(
-            "**FCUK**! wat have you entered. \nPlease read /help \n"
+             "**Please Read The Pinned Message**! <a href="https://t.me/gryfendor_leecher/6">PINNED MESSAGE</a> "
             f"<b>API Error</b>: {cf_name}"
         )
 #playlist
@@ -219,7 +219,7 @@ async def g_yt_playlist(client, message):
         if message.command[1] == "gdrive":
             G_DRIVE = True
     if 'youtube.com/playlist' in message.reply_to_message.text:
-        i_m_sefg = await message.reply_text("Downloading...you should wait🤗", quote=True)
+        i_m_sefg = await message.reply_text("@gryfendor_leecher Downloading...you should wait🤗", quote=True)
         await yt_playlist_downg(message.reply_to_message, i_m_sefg, G_DRIVE)
     
     else:
